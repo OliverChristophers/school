@@ -29,8 +29,7 @@ def game(skill, fatigue, num_targets):
     return targets.count("O")
 
 
-
-if __name__ == '__main__':
+def create_players():
     player1 = {
         'skill':random.randint(85, 100)/100,
         'fatigue':random.randint(90, 100)/100
@@ -41,11 +40,30 @@ if __name__ == '__main__':
         'fatigue':random.randint(90, 100)/100
     }    
     
+    return player1, player2
+
+
+
+def startGame():
+    
+    v = '''
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                Biathlon
+
+            a hit or miss game
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'''
+    print(v)
+    time.sleep(2)
+    os.system('cls')
     num_targets = int(input('number of targets? '))
     playto = int(input('winning score? '))
     time.sleep(1)
     os.system('cls')
     
+    return num_targets, playto
+
+    
+def gameloop(num_targets, playto, player1, player2):
     
     score1 = 0
     score2 = 0
@@ -78,5 +96,14 @@ if __name__ == '__main__':
         
         
         
+
+
+if __name__ == '__main__':
+    
+    player1, player2 = create_players()
+    num_targets, playto = startGame()
+    gameloop(num_targets, playto, player1, player2)
+    
+    
 
 
